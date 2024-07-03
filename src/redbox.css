@@ -1,0 +1,7 @@
+
+/* 동적으로 추가할 요소의 스타일을 지정했습니다. */
+.red_box {
+    width:500px;
+    height:500px;
+    background: red;
+}

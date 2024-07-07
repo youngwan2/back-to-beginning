@@ -3,9 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   // entry: './src/index.js',
+  mode:'development',
   entry: {
     index:'./src/index.js',
-    add:'./src/add.js'
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -17,6 +17,15 @@ module.exports = {
     filename:'[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean:true
+  },
+  // 서버 옵션을 추가합니다. static 은 번들링된 정적파일의 경로를 설정합니다.
+  devServer: {
+    static: './dist',
+    hot: true,
+  },
+  // index.html 을 기준으로 여러 모듈 파일이 종속되어 있다면 추가해주어야 합니다.
+  optimization: {
+    runtimeChunk: 'single',
   },
   module: {
     rules: [
